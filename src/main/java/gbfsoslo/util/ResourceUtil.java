@@ -11,13 +11,18 @@ public class ResourceUtil {
         this.propertyFileName = propertyFileName;
     }
 
-    public String getPropertyFromPropertyFile(String property) throws IOException {
+    public String getPropertyFromPropertyFile(String property) {
 
         ClassLoader classLoader = getClass().getClassLoader();
 
         InputStream inputStream = classLoader.getResourceAsStream(this.propertyFileName);
         Properties prop = new Properties();
-        prop.load(inputStream);
+        try{
+            prop.load(inputStream);
+        }catch (IOException ioEx){
+            return null;
+        }
+
         return prop.getProperty(property);
     }
 

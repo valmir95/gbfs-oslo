@@ -1,7 +1,10 @@
 package gbfsoslo.model;
 
+import gbfsoslo.config.Configuration;
+
 /** Class representing fields from StationInformation and StationStatus to conform to the assignments requirements. **/
 public class Station {
+
     private StationInformation stationInformation;
     private StationStatus stationStatus;
 
